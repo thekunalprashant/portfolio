@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css' rel='stylesheet'/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+
+<style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+ 
+  
+}
+
+html {
+  font-family: Fira Sans, monospace;
+  font-size: 12px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: #e7e7e7;
+  background: rgb(19, 19, 19);
+}
+
+
+a {
+  text-decoration: none;
+  color: rgba(3, 155, 155);
+}
+
+a:hover {
+  color: rgba(249, 105, 14, 1);
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding: .5rem;
+}
+
+section {
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 10px 8px 8px 8px;
+  text-decoration: none ;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  margin: 30px;
+  text-align: center;
+  
+}
+
+.sidenav a:hover {
+  color: rgba(3, 155, 155);;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+img:hover {
+  
+  animation: shake 0.5s;
+  animation-iteration-count: .2s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+img.sticky {
+  position: sticky;
+  top: 0;
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 50%;
+  z-index: 2;
+  float: right;
+ border: 2px solid slateblue;
+ 
+}
+
+
+
+#myContacts a {
+  position: fixed;
+  right: -110px ;
+  transition: 0.3s;
+  padding: 15px;
+  width: 120px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px 5px 5px 5px;
+  text-align:right;
+}
+
+#myContacts a:hover {
+  right: 0;
+}
+
+#linkedin {
+  bottom: 20px;
+  background-color: #0077B5;
+}
+
+#facebook {
+  bottom: 140px;
+  background-color: #0A81EC;
+}
+
+#reddit {
+  bottom: 80px;
+  background-color: #f44336;
+}
+
+#github {
+  bottom: 200px;
+  background-color: #555
+}
+i{
+float:left !important;
+}
+.myfooter{
+ 
+margin:auto;
+ padding-bottom: 5vh;
+  text-align: center;
+}
+.containerskill{
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 6vh;
+ 
+}
+@keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-webkit-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-moz-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-o-keyframes load{
+  from {
+    width: 0%
+  }
+}
+
+.bar{
+  background-color: rgb(6, 53, 43);
+  padding: 2px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #FFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.bar::before{
+  content:  attr(data-skill);
+  background-color: #f3b0ff;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
+  border-radius: inherit;
+  animation: load 3s 0s;
+  -webkit-animation: load 2.5s 0s;
+  -moz-animation: load 2s 0s;
+  -o-animation: load 2s 0s;
+}
+
+.bar.html5::before{
+  background-color: #ff3c00;
+}
+.bar.c::before{
+  background-color: #2f20fc;
+}
+.bar.javascript::before{
+  background-color: #fffb00;
+}
+.bar.css3::before{
+  background-color:rgb(98, 0, 255);
+}
+
+.bar.learning::before{
+  width: calc(20% - 10px);
+}
+.bar.basic::before{
+  width: calc(40% - 10px);
+}
+.bar.intermediate::before{
+  width: calc(60% - 10px);
+}
+.bar.advanced::before{
+  width: calc(80% - 10px);
+}
+.bar.expert::before{
+  width: calc(100% - 10px);
+}
+
+
+.timeline1 {
+
+position: relative;
+max-width: 1200px;
+margin: 0 auto;
+}
+.timeline1::after {
+content: '';
+position: absolute;
+width: 6px;
+
+top: 0;
+bottom: 0;
+left: 50%;
+margin-left: -3px;
+
+}
+
+.container1 {
+padding: 10px 40px;
+position: relative;
+
+width: 50%;
+
+  box-sizing: border-box;
+
+}
+
+
+.container1::after {
+content: '';
+position: absolute;
+width: 15px;
+height: 15px;
+right: -1px;
+background: rgb(15, 112, 129);
+border: 2px solid rgb(87, 23, 206);
+top: 19px;
+border-radius: 50%;
+z-index: 1;
+
+}
+
+.left1 {
+left: 0;
+}
+
+.right1 {
+left: 50%;
+}
+
+.left1::before {
+content: " ";
+height: 0;
+position: absolute;
+top: 22px;
+width: 0;
+z-index: 1;
+right: 30px;
+border: medium solid white;
+border-width: 5px 0 5px 5px;
+border-color: transparent transparent transparent white;
+}
+
+
+.right1::before {
+content: " ";
+height: 0;
+position: absolute;
+top: 22px;
+width: 0;
+z-index: 1;
+left: 30px;
+border: medium solid white;
+border-width: 5px 5px 5px 0;
+border-color: transparent white transparent transparent;
+}
+
+.right1::after {
+left: -16px;
+}
+
+.content1 {
+  padding: 5px 5px 5px 15px;
+position: relative;
+border-radius: 6px;
+
+}
+
+@media screen and (max-width: 600px) {
+
+.timeline1::after {
+left: 31px;
+box-sizing: border-box;
+}
+
+
+.container1 {
+width: 100%;
+padding-left: 70px;
+padding-right: 25px;
+
+box-sizing: border-box;
+}
+
+
+.container1::before {
+left: 60px;
+border: medium solid white;
+border-width: 5px 5px 5px 0;
+border-color: transparent white transparent transparent;
+
+
+}
+
+
+.left1::after, .right1::after {
+left: 15px;
+}
+
+
+.right1 {
+left: 0%;
+}
+}
+
+.landing-page {
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(
+      135deg,
+      rgba(0, 64, 77, 0.9) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    center no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+.main-message {
+  width: 100%;
+  max-width: 58rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-message h1 {
+  letter-spacing: 1.2rem;
+  font-size: 2rem;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 5s steps(27), blink 1s ease-in-out 8s infinite;
+  border-right: 4px solid #fafafa;
+  margin: auto;
+  width: 29ch;
+}
+
+@keyframes typing {
+  75% {
+    width: 0ch;
+    color: rgba(249, 105, 14, 1);
+  }
+  100% {
+    width: 29ch;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right: 4px solid rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-right: 4px solid rgb(194, 194, 194);
+  }
+}
+
+.main-message h3 {
+  font-size: 4rem;
+  margin: 1rem 0;
+  color: rgba(249, 105, 14, 1);
+  background: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-message p {
+  text-transform: none;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.intro-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 0 9px;
+  background:rgb(21, 128, 170);
+  border-radius: 2rem;
+  color: #fafafa;
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  transition: background-color 650ms;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.btn:hover {
+  color: #fafafa;
+  background: rgba(189, 72, 0);
+}
+
+
+.about {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 70rem;
+  margin: auto;
+}
+
+.about .containerintro {
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.about-img img {
+  height: 12rem;
+  width: auto;
+  border-radius: 50%;
+  margin: 2rem;
+  box-shadow: 0 20px 30px 0 rgba(0, 255, 255, 0.15);
+}
+
+.about-text-box {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.about-text-box h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.about-text-box p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0 0 1.45rem;
+}
+
+hr {
+  margin: 4rem 0;
+  
+  background-image: linear-gradient(
+    to right,
+    rgba(249, 105, 14, 1) 0%,
+    rgba(102, 51, 153, 1) 100%
+  );
+  border: 0;
+  height: 1px;
+}
+
+
+@media (max-width: 750px) {
+  .main-message h3 {
+    font-size: 3rem;
+  }
+  .about .container {
+    flex-direction: column;
+  
+  }
+  .about-text-box p {
+    font-size: 1.3rem;
+  }
+  
+
+@media (max-width: 665px) {
+  .main-message {
+    top: 55%;
+  }
+  .main-message h1 {
+    letter-spacing: 1rem;
+    font-size: 1.5rem;
+    width: 31ch;
+  }
+  .main-message h3 {
+    font-size: 2rem;
+  }
+
+  .main-message p {
+    font-size: 1.3rem;
+  }
+  .btn {
+    border-radius: 0.9rem;
+    padding: 0.9rem 0.9rem;
+  }
+  .about-text-box h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .about-text-box p {
+    margin: 0 0 2.45rem;
+  }
+
+  .title-heading h1 {
+    margin-bottom: 2rem;
+  }
+  .title-heading p {
+    font-size: 1.3rem;
+  }
+
+  .contact .container {
+    flex-direction: column;
+  }
+
+  footer,
+  footer p {
+    font-size: 1.2rem;
+    
+  }
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <div style="position: fixed; padding: 10px; z-index: 2; font-size:30px;cursor:pointer" onclick="openNav()">{>} </div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<img class="sticky" src="https://media-exp1.licdn.com/dms/image/C5603AQGlhvZOX_N_QA/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=0quAcsyRUHvb9qRJAR5IzBJYh8_FjbQwDXG5ZfAROcI" alt="Avatar">
+<section id="landing-page" class="landing-page">
+  <div class="containerintro">
+    <div class="main-message">
+      <h1>Kunal Prashant</h1>
+      <h3>{Front-End Web Developer}</h3>
+      <p>
+        HTML . CSS . JavaScript 
+      </p>
+      <div class="intro-btn">
+        <div >
+          <a href="#contact" class="btn">Contact Me</a>
+        </div>
+     
+      </div>
+     
+    </div>
+  </div>
+</section>
+<section id="about" class="about">
+  <div class="containerintro">
+    <div class="about-img">
+      <img
+        src="https://media-exp1.licdn.com/dms/image/C5603AQGlhvZOX_N_QA/profile-displayphoto-shrink_400_400/0?e=1604534400&v=beta&t=0quAcsyRUHvb9qRJAR5IzBJYh8_FjbQwDXG5ZfAROcI"
+        alt="Kunal"
+        class="about-pic"
+      />
+    </div>
+    <div class="about-text-box">
+      <h2>Hello 👋🏽</h2>
+      <p>
+        I'm Kunal Prashant, coding geek, 20-something-year-old
+        <strong> front-end web developer </strong> 💻 with a strong
+        educational background in Information Technology. 
+      </p>
+      <p>
+        I started creating cool web designs using HTML and CSS back in
+        2020. <strong>I am a JavaScript enthusiast</strong> and extremely
+        passionate about coding. I love to learn new things every day and
+        keep up with the new technologies. In many ways, websites are my
+        first love 💙
+      </p>
+      
+    </div>
+  </div>
+  <hr>
+<section id="skills">
+<h2 style=" text-align: center; background-color: rgba(0, 64, 77, 0.9) ; color: white; height: 40px;margin: 10px;padding-top: 20px;">My Skills</h2>
+<div class="containerskill">
+    
+   
+    <div class="bar javascript basic" data-skill="javaScript"></div>
+    <div class="bar c intermediate" data-skill="C"></div>
+    <div class="bar css3 advanced" data-skill="CSS3"></div>
+    <div class="bar html5 expert" data-skill="HTML5"></div>
+
+  </div>
+</section>
+
+<hr>
+<section id="education"><h2 style="text-align: center; background-color: rgba(0, 64, 77, 0.9) ; color: white; height: 40px;margin: 10px;padding-top: 20px;">Qualification</h2>
+<div class="timeline1">
+  <div class="container1 left1">
+    <div class="content1">
+      <h2 style="margin-bottom: 5%;">2019-Present</h2>
+      <p> <span style="font: 1.5em Fira Sans;"><a href="https://www.bitsindri.ac.in/"> B.I.T Sindri</a></span> <br><br>
+        Bachelor's Degree in Information Technology. 
+</p>
+    </div>
+  </div>
+
+  <div class="container1 right1">
+    <div class="content1">
+      <h2 style="margin-bottom: 5%;" >2016-18</h2>
+      <p><span style="font: 1.5em Fira Sans;" ><a href="http://miamdp.com/"> Mothers International Academy</a></span> <br> <br> 
+     Secondary Education in Mathematics</p>
+    </div>
+  </div>
+  <div class="container1 left1">
+    <div class="content1">
+      <h2 style="margin-bottom: 5%;">2011-16</h2>
+      <p> <span style="font: 1.5em Fira Sans;"> <a href="https://navodaya.gov.in/nvs/nvs-school/DEOGHAR/hi/about_us/About-JNV/"> Jawahar Navodaya Vidyalaya</a></span> <br> <br>
+High School, CBSE
+</p>
+    </div>
+  </div>
+
+</div>
+</section>
+<div id="myContacts" >
+  <a href="https://www.linkedin.com/in/kunal-prashant/" id="linkedin" ><i class="fa fa-linkedin"></i>LinkedIn</a>
+  <a   href="https://www.facebook.com/kunalprashant2/"  id="facebook" ><i class='fa fa-facebook'> </i> Facebook</a>
+  <a href="https://www.reddit.com/user/kunal-prashant" id="reddit" ><i class="fa fa-reddit"></i> Reddit</a>
+  <a href="https://github.com/kunalprashant-UI" id="github"><i class="fa fa-github"></i>Github</a>
+</div>
+<hr>
+<section id="contact" class="contact">
+<div>
+<h2 style="text-align: center;background-color: rgba(0, 64, 77, 0.9) ; color: white; height: 40px;margin: 10px;padding-top: 20px;">Contact Me</h2>
+<p style="padding:20px ;">Email Address:
+<a href="mailto:kunalprashant77@gmail.com">kunalprashant77@gmail.com</a></p>
+
+
+<hr>
+
+</div>
+</section>
+<footer>
+<div class="myfooter" > 
+<p> Copyright@ 2020 - Kunal Prashant - Sponsored By <a href="https://istebits.com/" >ISTEBITS</a></p></div>
+</footer>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "300px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+</body>
+</html> 
