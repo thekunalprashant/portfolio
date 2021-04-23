@@ -1,3 +1,3 @@
 # portfolio
 my portfolio
-http://cryptedexplorer.me/portfolio/
+https://kunalprashant-ui.github.io/portfolio/
