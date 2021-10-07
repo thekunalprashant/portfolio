@@ -1,3 +1,3 @@
 # portfolio
 my portfolio
-https://kunalprashant-ui.github.io/portfolio/
+https://thekunalprashant.github.io/portfolio/
